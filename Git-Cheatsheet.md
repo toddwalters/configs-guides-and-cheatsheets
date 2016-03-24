@@ -28,7 +28,7 @@ _Resetting Staged Changes:_
 
   Unstaging files from a staged commit can help to ensure that only related changes are associated with a specific commit.  The unstaged file can be staged into its own commit.
 
-_Undo:_
+_Undo Commit:_
 - `git checkout -- <target>`
 
   Files can be changed back to how they were at the last commit associated with a particular file. Git will roll back the status of files as they were at the time of the last commit for the file specified as the <target> of the checkout.  Using `--` is simply promising the command line that there are no more options after the `--`. This way if you happen to have a branch named <target>, it will still revert the file, instead of switching to the branch of the same name.
