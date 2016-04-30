@@ -5,6 +5,7 @@
 - List of all VM's: ``` VBoxManage list vms ```
 - List of all "running" VM's: ``` VBoxManage list runningvms ```
 - List virtual machines and their corresponding states execute command:
+
  ```
  $ VBoxManage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g | cut -d: -f2- 
  Debian - "Kolab dev"
