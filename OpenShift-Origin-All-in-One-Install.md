@@ -48,3 +48,10 @@ Install the required packages as follows: `apt-cyg install rsync openssh`
   ```
   
 - An alternative is to run Vagrant inside of Cygwin’s Terminal Window. This will provide a Linux-like experience with the Bash shell and a window that can be sized beyond 80 columns. In this way, you can use both Linux and Windows paths. However, to use Windows paths, you must surround thoses paths with single quotes. For example, `c:\User\joe` would be interpreted by the shell as `c:Userjoe` without single quotes. Surrounding `'c:\User\joe'` with single quotes, causes it to be interpreted correctly.
+
+#### Software Download and Installation to add to Windows
+1. Download and Install VirtualBox for Microsoft Windows from [virtualbox.org](http://virtualbox.org).
+2. Download and install Vagrant from [vagrantup.com](https://vagrantup.com).
+3. Download the Red Hat CDK software components from the [Red Hat Product Downloads web site](https://access.redhat.com/downloads/content/293/ver=2/rhel---7/2.0.0/x86_64/product-downloads).
+     -  Red Hat Container Tools (cdk-2.0.*.zip or later)  
+     -  Red Hat Enterprise Linux 7.2 Vagrant Box for VirtualBox (rhel-cdk-kubernetes-7.2*.x86_64.vagrant-virtualbox.box or later)
