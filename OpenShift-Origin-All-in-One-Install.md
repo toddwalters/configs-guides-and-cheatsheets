@@ -42,4 +42,3 @@ Install the required packages as follows: `apt-cyg install rsync openssh`
   export VAGRANT_DETECTED_OS=cygwin
   ```
 - An alternative is to run Vagrant inside of Cygwin’s Terminal Window. This will provide a Linux-like experience with the Bash shell and a window that can be sized beyond 80 columns. In this way, you can use both Linux and Windows paths. However, to use Windows paths, you must surround thoses paths with single quotes. For example, `c:\User\joe` would be interpreted by the shell as `c:Userjoe` without single quotes. Surrounding `'c:\User\joe'` with single quotes, causes it to be interpreted correctly.
-- 
