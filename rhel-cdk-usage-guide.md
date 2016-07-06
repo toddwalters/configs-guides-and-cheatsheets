@@ -24,3 +24,5 @@ vagrant status
 $ scl enable sclo-vagrant1 bash
 $ vagrant global-status
 ```
+
+[Docker 1.9 and Docker 1.10 now available for RHEL 7] (https://access.redhat.com/articles/2317361)
