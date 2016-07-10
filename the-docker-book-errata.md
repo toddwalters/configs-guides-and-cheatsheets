@@ -3,10 +3,10 @@
 In order for the container deployed via Docker to be able to work with the volume mount directive on a RHEL 7 Docker Server with SELinux enabled the following command needs to be executed on the RHEL 7 host:
 
 ```
-chcon -Rt httpd_sys_content_t $PWD/path/to/www
+chcon -Rt httpd_sys_content_t $PWD/website
 ```
 
-This ``chcon`` command can be issued before or after the docker run command listed below:
+This ``chcon`` command should be issued before the docker run command listed below:
 
 ```
 sudo docker run -d -p 80 --name website \ -v $PWD/website:/var/www/html/website \ jamtur01/nginx nginx
@@ -43,3 +43,39 @@ In for the docker build to complete successfully I had to split the RUN command 
 RUN gem install --no-rdoc --no-ri sinatra redis
 RUN gem install --no-rdoc --no-ri json -v 1.8.3
 ```
+
+**Chapter 5:  Listing 5.21: Launching our first Sinatra container**
+
+In order for the container deployed via Docker to be able to work with the volume mount directive on a RHEL 7 Docker Server with SELinux enabled the following command needs to be executed on the RHEL 7 host:
+
+```
+chcon -Rt httpd_sys_content_t $PWD/webapp
+```
+
+**Chapter 5:  Listing 5.54: Linking our Redis container**
+
+In order for the container deployed via Docker to be able to work with the volume mount directive on a RHEL 7 Docker Server with SELinux enabled the following command needs to be executed on the RHEL 7 host:
+
+```
+chcon -Rt httpd_sys_content_t $PWD/webapp_redis
+```
+
+**Chapter 5:  Listing 5.75: Jenkins and Docker Dockerfile**
+
+The following line in the dockerjenkins Dockerfile:
+
+```
+    RUN for plugin in chucknorris greenballs scm-api git-client git ws-cleanup ;\
+        do curl -sf -o $JENKINS_HOME/plugins/${plugin}.hpi \
+           -L $JENKINS_MIRROR/plugins/${plugin}/latest/${plugin}.hpi
+             ; done
+```
+ 
+ Needs to be changed to the following so that the jenkins git-client and git plugins can be installed successfully:
+ 
+```
+    RUN for plugin in chucknorris greenballs scm-api junit script-security matrix-project ssh-credentials structs workflow-step-api workflow-scm-step credentials mailer git-client git ws-cleanup ;\
+        do curl -sf -o $JENKINS_HOME/plugins/${plugin}.hpi \
+           -L $JENKINS_MIRROR/plugins/${plugin}/latest/${plugin}.hpi ; done
+```
+ 
