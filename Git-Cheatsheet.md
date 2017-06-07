@@ -1,6 +1,11 @@
 _Show history of git commits:_
 - `git log`
 
+_Set config variables within a specific repository:_
+- `git config user.name "johnedstone"`
+- `git config user.email "johnedstone@gmail.com"`
+- `git config push.default simple`
+
 _Pushing Remotely:_
 - `git push -u origin master`
 
