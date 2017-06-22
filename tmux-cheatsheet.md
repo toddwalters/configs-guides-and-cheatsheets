@@ -141,6 +141,31 @@ For example, we can use "w" to jump to the next word and "b" to jump back one wo
        Start selection         Space          C-Space
        Transpose chars                        C-t
 
+If you have vi style key bindings on then the following applies:
+
+1) enter copy mode using Control+b [
+2) navigate to beginning of text, you want to select and hit Space
+3) move around using arrow keys to select region
+4) when you reach end of region simply hit Enter to copy the region
+5) now Control+b ] will paste the selection
+
+Dump what you copied out to your terminal using:
+
+`tmux show-buffer`
+
+Save what you copied to a file (say, foo.txt):
+
+`tmux save-buffer foo.txt`
+To see all the paste buffers try Control + b #. To dump out the varios buffers on to the terminal or file you may use
+
+```bash
+tmux list-buffers
+tmux show-buffer -b n
+tmux save-buffer -b n foo.txt
+```
+
+where `n` is the index of the paste buffer.
+
 ## Misc
 
     d  detach
