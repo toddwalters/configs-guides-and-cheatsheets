@@ -52,8 +52,6 @@ Emacs is the default, and if you want Vim shortcuts for help and copy modes (e.g
 ## Kill all the tmux sessions:
 `tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill`
 
-**Note: ** For the remainder of the document the command keys listed within each of the sections assumes that the the tmux command mode prefix keyboard combination has been pressed prior to the specified command key.  As a reminder, in tmux, hit the command mode prefix is `ctrl+b` (my modified prefix is ctrl+a).
-
 ## Sessions
 
     :new<CR>  new session
@@ -143,11 +141,11 @@ For example, we can use "w" to jump to the next word and "b" to jump back one wo
 
 If you have vi style key bindings on then the following applies:
 
-1) enter copy mode using Control+b [
-2) navigate to beginning of text, you want to select and hit Space
+1) enter copy mode using `C-b [`
+2) navigate to beginning of text, you want to select and hit **Space**
 3) move around using arrow keys to select region
-4) when you reach end of region simply hit Enter to copy the region
-5) now Control+b ] will paste the selection
+4) when you reach end of region simply hit **Enter** to copy the region
+5) now `C-b ]` will paste the selection
 
 Dump what you copied out to your terminal using:
 
@@ -156,6 +154,7 @@ Dump what you copied out to your terminal using:
 Save what you copied to a file (say, foo.txt):
 
 `tmux save-buffer foo.txt`
+
 To see all the paste buffers try Control + b #. To dump out the varios buffers on to the terminal or file you may use
 
 ```bash
