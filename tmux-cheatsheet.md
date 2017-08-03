@@ -1,4 +1,5 @@
 # tmux cheatsheet
+The formatting here is simple enough to understand (I would hope). C means ctrl+, so C-x is ctrl+x. M- means meta (generally left-alt or escape)+, so M-x is left-alt+x
 (C-x means ctrl+x, M-x means alt+x)
 
 ## Prefix key
@@ -45,6 +46,10 @@ Emacs is the default, and if you want Vim shortcuts for help and copy modes (e.g
 
 ## list sessions:
 `tmux ls`
+
+## detach from an active session:
+`C-a d` 
+`C-a :detach`
 
 ## kill session:
 `tmux kill-session -t myname`
