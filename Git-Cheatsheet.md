@@ -1,4 +1,4 @@
-Git Cheat Sheet English
+Git Cheat Sheet
 ===============
 ### Index
 * [Set Up](#setup)
