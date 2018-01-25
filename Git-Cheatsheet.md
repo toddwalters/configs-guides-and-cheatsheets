@@ -1,6 +1,7 @@
 Git Cheat Sheet
 ===============
 ### Index
+* [Links](#links)
 * [Set Up](#setup)
 * [Configuration Files](#configuration-files)
 * [Create](#create)
@@ -14,11 +15,10 @@ Git Cheat Sheet
 * [Git Flow](#git-flow)
 
 
-<hr>
 ## Links
 
-- *[`tiimgreen/github-cheat-sheet`](https://github.com/tiimgreen/github-cheat-sheet)*
-- *[`github style guide`](https://github.com/agis/git-style-guide)*
+* [tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet)
+* [github style guide](https://github.com/agis/git-style-guide)
 
 ## Setup
 
