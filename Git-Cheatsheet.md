@@ -17,8 +17,9 @@ Git Cheat Sheet
 
 ## Links
 
-* [tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet)
 * [github style guide](https://github.com/agis/git-style-guide)
+* [tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet)
+* [drew barontini github conventions](http://drewbarontini.com/articles/git-github-conventions/)
 
 ## Setup
 
