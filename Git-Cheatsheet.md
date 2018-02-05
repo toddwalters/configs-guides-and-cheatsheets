@@ -18,6 +18,7 @@ Git Cheat Sheet
 ## Links
 
 * [github style guide](https://github.com/agis/git-style-guide)
+* [Git Merge vs. Rebase: What’s the Diff?](https://hackernoon.com/git-merge-vs-rebase-whats-the-diff-76413c117333)
 * [tiimgreen/github-cheat-sheet](https://github.com/tiimgreen/github-cheat-sheet)
 * [drew barontini github conventions](http://drewbarontini.com/articles/git-github-conventions/)
 
