@@ -460,6 +460,18 @@ squash <commit_id3>
 ```
 <hr>
 
+#### Rebase Branch with Master Example:
+
+```
+If you use the more-explicit git fetch origin (then optionally look around) and then git merge origin/master sequence, you can also bring your own local master up to date with the remote, with only one fetch run across the network:
+
+git fetch origin
+git checkout master
+git merge --ff-only origin/master
+git checkout dmgr2
+git merge --no-ff origin/master
+```
+
 ## Undo
 
 ##### Discard all local changes in your working directory:
