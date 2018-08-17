@@ -527,7 +527,7 @@ There are potentially three versions of every remote branch:
 
 1. The actual branch on the remote repository
 
-2.Your snapshot of that branch locally (stored under refs/remotes/...)
+2. Your snapshot of that branch locally (stored under refs/remotes/...)
 
 3. And a local branch that might be tracking the remote branch
 
