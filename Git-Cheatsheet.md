@@ -526,7 +526,9 @@ $ git commit -m "remove xyz file"
 There are potentially three versions of every remote branch:
 
 1. The actual branch on the remote repository
+
 2.Your snapshot of that branch locally (stored under refs/remotes/...)
+
 3. And a local branch that might be tracking the remote branch
 
 Let's start with `git prune`. This removes objects that are no longer being referenced, it does not remove references. In your case, you have a local branch. That means there's a ref `named random_branch_I_want_deleted` that refers to some objects that represent the history of that branch. So, by definition, `git prune` will not remove `random_branch_I_want_deleted`. Really, git prune is a way to delete data that has accumulated in Git but is not being referenced by anything. In general, it doesn't affect your view of any branches.
