@@ -521,6 +521,31 @@ $ git commit -m "remove xyz file"
 ```
 <hr>
 
+## What are the differences between git remote prune, git prune, git fetch --prune, etc
+
+There are potentially three versions of every remote branch:
+
+1. The actual branch on the remote repository
+2.Your snapshot of that branch locally (stored under refs/remotes/...)
+3. And a local branch that might be tracking the remote branch
+
+Let's start with `git prune`. This removes objects that are no longer being referenced, it does not remove references. In your case, you have a local branch. That means there's a ref `named random_branch_I_want_deleted` that refers to some objects that represent the history of that branch. So, by definition, `git prune` will not remove `random_branch_I_want_deleted`. Really, git prune is a way to delete data that has accumulated in Git but is not being referenced by anything. In general, it doesn't affect your view of any branches.
+
+`git remote prune origin` and `git fetch --prune` both operate on references under `refs/remotes/...` (I'll refer to these as remote references). It doesn't affect local branches. The `git remote` version is useful if you only want to remove remote references under a particular remote. Otherwise, the two do exactly the same thing. So, in short, `git remote prune` and `git fetch --prune` operate on number 2 above. For example, if you deleted a branch using the git web GUI and don't want it to show up in your local branch list anymore (`git branch -r`), then this is the command you should use.
+
+To remove a local branch, you should use `git branch -d` (or `-D` if it's not merged anywhere). FWIW, there is no git command to automatically remove the local tracking branches if a remote branch disappears.
+
+Another perspective:
+
+`git remote prune` and `git fetch --prune` do the same thing: deleting the refs to the branches that don't exist on the remote, as you said. The second command connects to the remote and fetches its current branches before pruning.
+
+However it doesn't touch the local branches you have checked out, that you can simply delete with
+
+`git branch -d  random_branch_I_want_deleted`
+Replace `-d` by `-D` if the branch is not merged elsewhere
+
+`git prune` does something different, it purges unreachable objects, those commits that aren't reachable in any branch or tag, and thus not needed anymore.
+
 ## Git-Flow
 Improved [Git-flow](https://github.com/petervanderdoes/gitflow-avh)
 
