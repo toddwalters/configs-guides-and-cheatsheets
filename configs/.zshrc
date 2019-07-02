@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/toddwalters/.oh-my-zsh"
 
@@ -20,8 +23,8 @@ POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
 #POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
 #POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
 #POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 #POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf09b '
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -38,6 +41,13 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M \uf073 %d/%m/%y}"
 POWERLEVEL9K_TIME_BACKGROUND='white'
+POWERLEVEL9K_HISTORY_BACKGROUND='220'
+POWERLEVEL9K_HOME_ICON=''
+POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_FOLDER_ICON=''
+POWERLEVEL9K_STATUS_VERBOSE=true
+POWERLEVEL9K_STATUS_CROSS=true
+
 #POWERLEVEL9K_RAM_BACKGROUND='yellow'
 #POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="white"
 #POWERLEVEL9K_LOAD_WARNING_BACKGROUND="white"
@@ -48,11 +58,6 @@ POWERLEVEL9K_TIME_BACKGROUND='white'
 #POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
 #POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
 #POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
-POWERLEVEL9K_HOME_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON=''
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_STATUS_VERBOSE=true
-POWERLEVEL9K_STATUS_CROSS=true
 
 
 # Set list of themes to pick from when loading at random
@@ -168,7 +173,7 @@ source /usr/local/bin/virtualenvwrapper.sh
  alias zshconfig="mate ~/.zshrc"
  alias ohmyzsh="mate ~/.oh-my-zsh"
  alias ls='/usr/local/bin/exa'
- alias lla='/usr/local/bin/exa -la'
+ alias lla='/usr/local/bin/exa -lagGF --group-directories-first'
  alias digs='dig +noall +answer'
  alias dock9='/usr/local/bin/docker-v1.9.0'
  alias dock10='/usr/local/bin/docker-v1.10.3'
@@ -183,3 +188,5 @@ source /usr/local/bin/virtualenvwrapper.sh
  alias fullSizeSaveOn='defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true;defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true'
  alias fullSizeSaveOff='defaults delete NSGlobalDomain NSNavPanelExpandedStateForSaveMode;defaults delete NSGlobalDomain NSNavPanelExpandedStateForSaveMode2'
  alias fullSizeSaveChk='defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode;defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
