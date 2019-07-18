@@ -293,9 +293,15 @@ $ git checkout <branch>
 $ git checkout <branch> -- <filename>
 ```
 
-##### Create and switch new branch:
+##### Create and switch into new branch:
 ```
 $ git checkout -b <branch>
+```
+
+##### Create and switch new branch and push upstream:
+```
+git checkout -b <branch>
+git push --set-upstream origin <branch>
 ```
 
 #### Checkout and create a new branch from existing commit
@@ -467,10 +473,10 @@ squash <commit_id3>
 
 If you use the more-explicit git fetch origin (then optionally look around) and then git merge origin/master sequence, you can also bring your own local master up to date with the remote, with only one fetch run across the network:
 ```
-git fetch origin
+git fetch origin --prune
 git checkout master
 git merge --ff-only origin/master
-git checkout dmgr2
+git checkout <existing_branch_to_rebase>
 git merge --no-ff origin/master
 ```
 
@@ -551,7 +557,53 @@ Replace `-d` by `-D` if the branch is not merged elsewhere
 
 `git prune` does something different, it purges unreachable objects, those commits that aren't reachable in any branch or tag, and thus not needed anymore.
 
+### Clean up list of remote branches:
+
+```
+git fetch origin --prune;git merge --ff-only origin/master;git branch -a
+```
+
+<hr>
+
+## Create diff file from one repo to apply to another repo
+
+### Links:
+
+* [create-patch-or-diff-file-from-git-repository-and-apply-it-to-another-different](https://stackoverflow.com/questions/28192623/create-patch-or-diff-file-from-git-repository-and-apply-it-to-another-different)
+
+In repo that you want to collect changes to be applied to another repo perform the following:
+
+`git diff bea2119..HEAD > /path/to/patchfile/to-be-created/fubar.patch`
+
+Several things to note with regards to the above command:
+
+1. Assuming you are wanting to grab diff of repo from most current state (i.e. HEAD) back to and including concurrent commits from a particular commit number (i.e. bea2119).  You could also specify any range of commits that you are looking to get a diff of, it doesn't have to always be all the way back to HEAD.
+
+2. The first commit referenced is the commit immediately prior to the commit that you are actually wanting to include within the diff.  Essentially the first referenced commit (i.e. bea2119) represents the initial snapshot of the repo that you are diffing and the second commit number (i.e. HEAD) represents the "end-state" snapshot of the repository and the `git diff` is collecting all commits that happened between those two repo snapshot.
+
+Switch repo focus to the repo and branch that you are trying to apply/migrate commits into and execute the following:
+
+`git apply /path/to/patchfile/to-be-applied/fubar.patch`
+
+You will probably get some warnings as below about whitespace errors (see below), but it should apply the diff to the repo
+
+```
+/path/to/patchfile/to-be-applied/fubar.patch:179: trailing whitespace.
+   DependsOn:
+/path/to/patchfile/to-be-applied/fubar.patch:211: trailing whitespace.
+   DependsOn: rAwsS3AdminRole
+/path/to/patchfile/to-be-applied/fubar.patch:321: trailing whitespace.
+         - ec2:SomeRandomThing1
+/path/to/patchfile/to-be-applied/fubar.patch:460: trailing whitespace.
+         - ec2:SomeRandomThing2
+/path/to/patchfile/to-be-applied/fubar.patch:549: trailing whitespace.
+             - ec2:SomeRandomThing3
+warning: squelched 2 whitespace errors
+warning: 7 lines add whitespace errors.
+```
+
 ## Git-Flow
+
 Improved [Git-flow](https://github.com/petervanderdoes/gitflow-avh)
 
 ### Git flow schema
