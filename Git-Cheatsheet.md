@@ -1,6 +1,9 @@
+
 Git Cheat Sheet
 ===============
+
 ### Index
+
 * [Links](#links)
 * [Set Up](#setup)
 * [Configuration Files](#configuration-files)
