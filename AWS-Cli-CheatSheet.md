@@ -17,6 +17,15 @@ aws sts get-caller-identity --profile ProfileName
 
 <hr>
 
+##  Credential and Profile Details Retrieval
+
+```bash
+egrep -A5 -i '\[ProfileName' ~/.aws/credentials
+egrep -A12 '^\[ProfileName' ~/.aws/custom_config_file
+```
+
+<hr>
+
 ## S3
 
 ### online example commands

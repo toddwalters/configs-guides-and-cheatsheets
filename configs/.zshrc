@@ -1,18 +1,27 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+#PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+#export PATH
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# Adding homebrew and Local bin to path
+PATH="/Users/username/Local/homebrew/bin:/Users/username/Local/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/toddwalters/.oh-my-zsh"
+export ZSH="/Users/username/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_MODE='nerdfont-fontconfig'
@@ -23,8 +32,8 @@ POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
 #POWERLEVEL9K_BATTERY_DISCONNECTED='$DEFAULT_COLOR'
 #POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
 #POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-#POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+#POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf09b '
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -131,12 +140,14 @@ plugins=(
   pyenv
   python
   pylint
+  osx
   tmux
   virtualenv
   vscode
-  zsh-syntax-highlighting
-  zsh-completions
+  zsh-apple-touchbar
   zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
   )
 
 source $ZSH/oh-my-zsh.sh
@@ -183,10 +194,10 @@ source /usr/local/bin/virtualenvwrapper.sh
  alias py2brewpath='export OLDPATH=$PATH; export PATH=/usr/local/Cellar/python@2/2.7.15/Frameworks/Python.framework/Versions/2.7/bin:$PATH'
  alias py3path='export PATH=$OLDPATH;unset OLDPATH'
  alias awson='. ~/.virtualenvs/aws-cli-3/bin/activate;complete -C 'aws_completer' aws'
- alias lath='/Users/rm93513/.virtualenvs/aws-cli-3/bin/lilly_aws_auth'
  alias vscode='awson;cd ~/Sandbox/config/vscode;code'
  alias fullSizeSaveOn='defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true;defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true'
  alias fullSizeSaveOff='defaults delete NSGlobalDomain NSNavPanelExpandedStateForSaveMode;defaults delete NSGlobalDomain NSNavPanelExpandedStateForSaveMode2'
  alias fullSizeSaveChk='defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode;defaults read NSGlobalDomain NSNavPanelExpandedStateForSaveMode'
-
+alias gmbclean='git checkout master;git fetch origin --prune;git merge --ff-only origin/master;git branch -a'
+alias gmwm='git merge --no-ff origin/master'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
