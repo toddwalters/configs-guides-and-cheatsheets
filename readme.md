@@ -13,6 +13,10 @@ A repository filled with stuff I can never remember how to do off the top of my 
 * [The Open Guide to Amazon Web Services](https://github.com/open-guides/og-aws)
 * [AWS CloudFormation Sample Templates](https://github.com/awslabs/aws-cloudformation-templates)
 
+##### AWS Labs
+
+* [Awesom AWS Workshops](https://awesome-aws-workshops.com)
+
 ##### Python Learning Repos
 
 * [kyclark tiny python projects](https://github.com/kyclark/tiny_python_projects)
