@@ -16,11 +16,11 @@
 
 `Get-ChildItem Env:`
 
-## Set Local Environment Variable in PS Session:
+## Set Local Environment Variable in PS Session
 
 `$env:TestVariable = "This is a test environment variable."`
 
-## Delete Local Environment Variable in PS Session:
+## Delete Local Environment Variable in PS Session
 
 `Remove-Item Env:\MyTestVariable`
 
@@ -33,7 +33,7 @@
 `$Foo = 123`
 `$Foo = "Bar"`
 
-## Unset Variable in PS Session:
+## Unset Variable in PS Session
 
 `Remove-Variable Foo`
 
@@ -41,19 +41,19 @@
 
 `Add-PSSnapin Quest.ActiveRoles.ADManagement`
 
-## List Loaded Snapins:
+## List Loaded Snapins
 
 `Get-PSSnapin | % {$_.Name}`
 
-## List Loaded Modules:
+## List Loaded Modules
 
 `Get-Module -ListAvailable`
 
-## List Command Available Within a Module:
+## List Command Available Within a Module
 
 `Get-Command -Module <ModuleName>`
 
-## Load AWS PowerShell Module:
+## Load AWS PowerShell Module
 
 `Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell\AWSPowerShell.psd1"`
 
@@ -71,7 +71,7 @@
 
 ## Set Environment Variable
 
-`$env:AWS_PROFILE = "dev-lz-master"`
+`$env:AWS_PROFILE = "awsProfileName"`
 
 ## List Environment Variables
 
@@ -81,15 +81,15 @@
 
 `Get-Module -ListAvailable`
 
-## There are few modules loaded for basic management tasks. To check which modules are loaded into PowerShell, execute the following command:
+## There are few modules loaded for basic management tasks. To check which modules are loaded into PowerShell, execute the following command
 
 `Get-Module -All`
 
-## You can load a particular module by executing the following command:
+## You can load a particular module by executing the following command
 
 `Import-Module -Name AWSPowerShell`
 
-## To list commands in a particular module, execute the following command:
+## To list commands in a particular module, execute the following command
 
 `Get-Command -Module AWSPowerShell`
 
@@ -97,4 +97,3 @@
 
 `$cred=Get-Credential`
 `VSTConnVIServer -Credential $cred lab`
-
