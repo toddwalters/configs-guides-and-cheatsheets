@@ -1,7 +1,7 @@
 format = """
-[](bg:#030B16 fg:#7DF9AA)\
-[ ](bg:#7DF9AA fg:#090c0c)\
-[](fg:#7DF9AA bg:#1C3A5E)\
+[](bg:#030B16 fg:#ffffff)\
+[ ](bg:#ffffff fg:#000000)\
+[](fg:#ffffff bg:#1C3A5E)\
 $time\
 [](fg:#1C3A5E bg:#3B76F0)\
 $directory\
@@ -72,10 +72,12 @@ $meson\
 $spack\
 $memory_usage\
 $aws\
-[](fg:#1C3A5E bg:#00000)\
+[](fg:#000000 bg:#ff0000)\
 $gcloud\
+[](fg:#ff0000 bg:#3b76f0)\
 $openstack\
 $azure\
+[](fg:#3B76F0 bg:#00000)\
 $env_var\
 $crystal\
 $custom\
@@ -162,7 +164,7 @@ style = "bold fg:green"
 [battery]
 full_symbol = "🔋"
 charging_symbol = "🔌"
-discharging_symbol = "⚡"
+discharging_symbol = " ⚡"
 
 [[battery.display]]
 threshold = 30
@@ -251,11 +253,23 @@ disabled = false
 ################################################################################
 [aws]
 format = '[$symbol($profile )(\($region\) )]($style)'
-style = 'fg:#ff9e00'
+style = 'fg:#ff9e00 bg:#000000'
 symbol = '  '
+
 [aws.region_aliases]
-ap-southeast-2 = 'au'
-us-east-1 = 'va'
+ap-southeast-2 = 'apse2'
+us-east-1 = 'use1'
+us-east-2 = 'use2'
+
+[azure]
+disabled = false
+format = '[$symbol($username )($subscription)]($style)'
+symbol = ' ﴃ '
+style = 'fg:#FFFFFF bg:#3B76F0'
+
+[azure.subscription_aliases]
+'Waltodders Azure Sub 1' = 'wt-az-sub-1'
+
 
 [bun]
 format = '\[[$symbol($version)]($style)\]'
@@ -306,9 +320,12 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$branch]($style)\]'
 
 [gcloud]
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
-symbol = '️🇬️ '
-disabled = true
+format = '[$symbol$account(@$domain)(\($project\))]($style)'
+symbol = '️  '
+style = 'fg:#ffcc00 bg:#ff0000'
+#style = 'fg:#0066ff bg:#ff0000'
+#style = 'fg:#FFFFFF bg:#3B76F0'
+disabled = false
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
