@@ -13,23 +13,6 @@ for file in $HOME/.local/include/*;
   do source $file
 done
 
-# AWS Profile Functions
-function aws-profiles() { grep -E "^\[.*\]" ~/.aws/config |grep -v sso-session | sed -E "s/^\[(.*)\]/\1/"; }
-
-function asp() {
-  export AWS_PROFILE=$1
-}
-
-# Hex Color Print Function
-function hexcb() { 
-  for i in {0..255} ; do
-      printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
-      if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
-          printf "\n";
-      fi
-  done
-}
-
 eval "$(pyenv init -)"
 eval "$(mcfly init zsh)"
 eval "$(starship init zsh)"
