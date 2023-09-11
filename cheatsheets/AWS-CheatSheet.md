@@ -25,6 +25,7 @@
     - [List all stack outputs deployed to an AWS Account](#list-all-stack-outputs-deployed-to-an-aws-account)
     - [Display policy created/updated by CloudFormation](#display-policy-createdupdated-by-cloudformation)
   - [Miscellaneous](#miscellaneous)
+    - [Programmatically list all of the available actions for AWS services](#programmatically-list-all-of-the-available-actions-for-aws-services)
     - [Generate a yaml based report of security groups configured within an account in a specific region (required v2 of the aws cli)](#generate-a-yaml-based-report-of-security-groups-configured-within-an-account-in-a-specific-region-required-v2-of-the-aws-cli)
     - [Display yaml based listing of a specific security groups (requires v2 of the aws cli)](#display-yaml-based-listing-of-a-specific-security-groups-requires-v2-of-the-aws-cli)
     - [Display lambda policy in json format](#display-lambda-policy-in-json-format)
@@ -230,6 +231,24 @@ aws cloudformation list-exports
   ```
 
 ## Miscellaneous
+
+### Programmatically list all of the available actions for AWS services
+
+```zsh
+curl --header 'Connection: keep-alive' \
+     --header 'Pragma: no-cache' \
+     --header 'Cache-Control: no-cache' \
+     --header 'Accept: */*' \
+     --header 'Referer: https://awspolicygen.s3.amazonaws.com/policygen.html' \
+     --header 'Accept-Language: en-US,en;q=0.9' \
+     --silent \
+     --compressed \
+     'https://awspolicygen.s3.amazonaws.com/js/policies.js' |
+    cut -d= -f2 |
+    jq -r '.serviceMap[] | .StringPrefix as $prefix | .Actions[] | "\($prefix):\(.)"' |
+    sort |
+    uniq
+```
 
 ### Generate a yaml based report of security groups configured within an account in a specific region (required v2 of the aws cli)
 
