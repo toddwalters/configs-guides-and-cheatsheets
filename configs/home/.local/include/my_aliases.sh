@@ -44,7 +44,9 @@ alias lla='/opt/homebrew/bin/exa -lagGF --group-directories-first --icons'
 alias ls='/opt/homebrew/bin/exa'
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias powershell='/usr/local/bin/pwsh'
+alias shf='cat ~/.local/include/*_functions.sh | egrep function | sed 's/..$//''
+alias tf='terraform'
 alias venv='python3 -m venv venv && . venv/bin/activate && python3 -m pip install -U pip'
-alias vscode='awson;cd ~/Sandbox/config/vscode;code'
+
 alias weather='curl wttr.in'
 alias zshconfig="mate ~/.zshrc"

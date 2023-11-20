@@ -7,3 +7,7 @@ function hexcb() {
       fi
   done
 }
+
+function vscode() { 
+   . ~/.venv/cloud-dev/bin/activate;cd ~/configs/vscode/;/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/MacOS/Electron $1 &> /dev/null &
+}
