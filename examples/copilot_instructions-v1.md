@@ -217,7 +217,8 @@ For all projects, maintain:
 When suggesting Git commits after making changes:
 
 1. **Always suggest commits using the Conventional Commits format**:
-   ```
+
+   ```zsh
    <type>[optional scope]: <description>
 
    [optional body]
@@ -238,14 +239,16 @@ When suggesting Git commits after making changes:
    - `chore`: Other changes that don't modify src or test files
 
 3. **For every code change, provide a terminal command** with properly formatted commit message:
-   ```
+
+   ```zsh
    @terminal
    git add [changed files]
    git commit -m "feat(component): add new feature X"
    ```
 
 4. **For breaking changes**, add `BREAKING CHANGE:` in the commit footer:
-   ```
+
+   ```zsh
    @terminal
    git commit -m "feat(api): change authentication method
 
@@ -262,19 +265,23 @@ When suggesting Git commits after making changes:
 When suggesting Git operations that involve branches:
 
 1. **Recommend branch names that follow the pattern**:
-   ```
+
+   ```zsh
    <type>/<description>
    ```
+
    Example: `feature/add-user-authentication` or `fix/login-validation-bug`
 
 2. **Always check the current branch before suggesting commits**:
-   ```
+
+   ```zsh
    @terminal
    git branch --show-current
    ```
 
 3. **Suggest creating new branches for substantial changes**:
-   ```
+
+   ```zsh
    @terminal
    git checkout -b feature/new-component
    ```
