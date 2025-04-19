@@ -4,7 +4,7 @@
 
 ### Communication
 
-* Work on only one file at a time 
+* Work on only one file at a time
 * Be conversational and educational about your thought process
 * Answer in the style of a friendly colleague using informal language
 * Use @terminal when answering questions about Git
